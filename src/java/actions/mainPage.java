@@ -1,3 +1,5 @@
+package java.actions;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -5,15 +7,17 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.Test;
+
 import java.util.List;
 
-public class Test {
+public class mainPage {
     public static WebDriver driver = new ChromeDriver();
     WebDriverWait wait = new WebDriverWait(driver, 15);
     public void setUp() {
 
         WebDriver driver = new ChromeDriver();
-        System.setProperty("webdriver.chrome.driver", "C:\\!!W\\Selenium\\allegro\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
 //        driver = new ChromeDriver();
         WebDriverWait wait = new WebDriverWait(driver, 15);
     }
@@ -21,10 +25,10 @@ public class Test {
 
     public void testAllegro() throws InterruptedException {
         driver.get("https://allegro.pl");
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/div[7]/div/div[2]/div/div[2]/button[2]")));
-        driver.findElement(By.xpath("/html/body/div[2]/div[7]/div/div[2]/div/div[2]/button[2]")).click();
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/div[2]/nav/div/div[1]/div/div/form/input")));
-        driver.findElement(By.xpath("/html/body/div[2]/div[2]/nav/div/div[1]/div/div/form/input")).sendKeys("iPhone8");
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/body/div/iv/div/div/div/div/button")));
+        driver.findElement(By.xpath("/body/div/div/div/div/div/div/button")).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/body/div/div/nav/div/div/div/div/form/input")));
+        driver.findElement(By.xpath("/body/div/div/nav/div/div/div/div/form/input")).sendKeys("iPhone8");
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/div[2]/nav/div/div[1]/div/div/form/button")));
         driver.findElement(By.xpath("/html/body/div[2]/div[2]/nav/div/div[1]/div/div/form/button")).click();
     }
@@ -53,7 +57,8 @@ public class Test {
     }
 
 
-    public void wykonanieTestu() throws InterruptedException {
+    @Test
+    void wykonanieTestu() throws InterruptedException {
         testAllegro();
         ileIphonow();
         znalezienieNajwyzszejCeny();
